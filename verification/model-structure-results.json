@@ -1,0 +1,59 @@
+{
+  "ok": true,
+  "models": [
+    {
+      "file": "cpu.glb",
+      "valid": true,
+      "bytes": 810372,
+      "nodes": 69
+    },
+    {
+      "file": "desktop.glb",
+      "valid": true,
+      "bytes": 898096,
+      "nodes": 68
+    },
+    {
+      "file": "disk.glb",
+      "valid": true,
+      "bytes": 820124,
+      "nodes": 65
+    },
+    {
+      "file": "doctor.glb",
+      "valid": true,
+      "bytes": 45544,
+      "nodes": 49
+    },
+    {
+      "file": "memory.glb",
+      "valid": true,
+      "bytes": 982272,
+      "nodes": 70
+    },
+    {
+      "file": "network.glb",
+      "valid": true,
+      "bytes": 1620696,
+      "nodes": 67
+    },
+    {
+      "file": "scene.glb",
+      "valid": true,
+      "bytes": 1926588,
+      "nodes": 2053
+    },
+    {
+      "file": "temperature.glb",
+      "valid": true,
+      "bytes": 855996,
+      "nodes": 75
+    },
+    {
+      "file": "visitor.glb",
+      "valid": true,
+      "bytes": 37388,
+      "nodes": 43
+    }
+  ]
+}

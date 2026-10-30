@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "node": "24.15.0",
+  "esbuild": "0.25.12",
+  "unicodeFolderBuild": true,
+  "outputSha256": "2bc1a6693f8f768c66dbed0e492be1f54190358568f330c9a535dda17c0ee07b"
+}

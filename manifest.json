@@ -1,0 +1,236 @@
+{
+  "createdAt": "2026-10-30T07:58:54.417044+00:00",
+  "type": "frontend-template",
+  "liveMonitoringConnected": false,
+  "native3DGeometry": true,
+  "runtimeExternalRequests": 0,
+  "modelCount": 9,
+  "prescriptionTopics": 21,
+  "prescriptionOptions": 43,
+  "referenceSource": "reference/选定的森林树屋风格.png",
+  "threeVersion": "0.186.1",
+  "sourceURLs": [
+    "https://raw.githubusercontent.com/mrdoob/three.js/master/build/three.module.js",
+    "https://raw.githubusercontent.com/mrdoob/three.js/master/build/three.core.js",
+    "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/jsm/controls/OrbitControls.js",
+    "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/jsm/exporters/GLTFExporter.js",
+    "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/jsm/utils/BufferGeometryUtils.js"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 50,
+      "sha256": "1df391a5002dfc9dcb0dfe4b01f94089235a24e070bfb5896f0584fd0989aeaa"
+    },
+    {
+      "path": "01_接入任务提示词.md",
+      "bytes": 4376,
+      "sha256": "fc2429890654f170f51521dfcda26e1a77cc2d15ba89ce32e991259b545b89c9"
+    },
+    {
+      "path": "02_电脑小医院_处方库_V2.json",
+      "bytes": 20369,
+      "sha256": "d9bbf8dc82a372b056c6e233e3f153cae38cfdb18b311b04f489e65fd37422a5"
+    },
+    {
+      "path": "03_电脑小医院_森林树屋_前端模板.html",
+      "bytes": 875994,
+      "sha256": "2bc1a6693f8f768c66dbed0e492be1f54190358568f330c9a535dda17c0ee07b"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1067,
+      "sha256": "27bb86148b0f86ed51f729b5f892d7a58d37f80bc34ebb5b00f9b10c31c1a506"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2256,
+      "sha256": "787156d445fa5d1f62562ecd1b9978577ac26b4863f89aee70d6e56ef074c519"
+    },
+    {
+      "path": "assets/BufferGeometryUtils.js",
+      "bytes": 37712,
+      "sha256": "9fb63427ce6641fa14fd0baff9cc4d1b5f9c3d85fd084bf2e90e803c44ec1797"
+    },
+    {
+      "path": "assets/GLTFExporter.js",
+      "bytes": 93570,
+      "sha256": "d766b04f233fa8bc72bfaebacaac5ecb832c30ca3695ce8d84bbb7dccccdc842"
+    },
+    {
+      "path": "assets/OrbitControls.js",
+      "bytes": 40755,
+      "sha256": "3d79d07ecb686b4e5d93232eedab255331c1beef711e13164eaa1f68655a5f2b"
+    },
+    {
+      "path": "assets/THREE-LICENSE.txt",
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    },
+    {
+      "path": "assets/three-package.json",
+      "bytes": 3672,
+      "sha256": "f9c474a27c920b9435353a6235968f4453436bee0444fac7e5fd289c8fa463de"
+    },
+    {
+      "path": "assets/three.core.js",
+      "bytes": 1458113,
+      "sha256": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6"
+    },
+    {
+      "path": "assets/three.module.js",
+      "bytes": 662772,
+      "sha256": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea"
+    },
+    {
+      "path": "build.mjs",
+      "bytes": 1013,
+      "sha256": "fb5856558cdd0cc0a10fcf8b7ca4c056f84872cd71edd1807bc3c5afa523f741"
+    },
+    {
+      "path": "docs/scene-layout.md",
+      "bytes": 2415,
+      "sha256": "476d1db02eac29bbbc075c5b8225829846ef3d1f32b84046255be473c10b7f97"
+    },
+    {
+      "path": "docs/制作与来源说明.md",
+      "bytes": 1148,
+      "sha256": "5c8169c98ea7aeaa9369b97de198f64e2d8423b5e2042c728d5172ef568089b2"
+    },
+    {
+      "path": "docs/前端接入说明.md",
+      "bytes": 4806,
+      "sha256": "f2d99c2486ef2b2d20773aa5f68f3e2a84566c2b617f4641066c7feb97d5991c"
+    },
+    {
+      "path": "models/cpu.glb",
+      "bytes": 810372,
+      "sha256": "95db61765df08016fbfad279846f54416d313ae55987a5289507ff179c3fd2bc"
+    },
+    {
+      "path": "models/desktop.glb",
+      "bytes": 898096,
+      "sha256": "cf27abf210678983f98e370cb156ed76785ad3f0133c61519c8569de4e3156cf"
+    },
+    {
+      "path": "models/disk.glb",
+      "bytes": 820124,
+      "sha256": "1b2d58d45b5e5eeef900c6a59238007b5441e66fac6704160060fcf24607df9e"
+    },
+    {
+      "path": "models/doctor.glb",
+      "bytes": 45544,
+      "sha256": "9788560a71dd140a1c2ccc846b46d40f544478d2f50eaccfd2d5d9c7938a6aff"
+    },
+    {
+      "path": "models/memory.glb",
+      "bytes": 982272,
+      "sha256": "0059c839e80c2fe23293c6155f0cdc6f24011c025ed1143b6cd42793452acabc"
+    },
+    {
+      "path": "models/network.glb",
+      "bytes": 1620696,
+      "sha256": "2eb17caeaba1327a25e750cd94f0b47c46e52acaf2769af201124ee661c7f0af"
+    },
+    {
+      "path": "models/scene.glb",
+      "bytes": 1926588,
+      "sha256": "6b45dd9b4fd07ba60994aace6f003bd56966b7d78f4f3198bda2d77668a6e933"
+    },
+    {
+      "path": "models/temperature.glb",
+      "bytes": 855996,
+      "sha256": "ba9367db5f3093ee694a621c9ff51a0a58f15f3c0ec300a2748d1cb155ea4e5c"
+    },
+    {
+      "path": "models/visitor.glb",
+      "bytes": 37388,
+      "sha256": "791e067e9ec18ae0afbdefa535dd796caa07e61b592f9a2753ce452b3f6630a7"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 14598,
+      "sha256": "29a6e12c79072be63b2e76ec4683c318c3ec148543c33967b148287bed2697ac"
+    },
+    {
+      "path": "package.json",
+      "bytes": 409,
+      "sha256": "35585021677135ecfb68d7e7788e7283e30c08257bf15e8539e58dcfd23b641c"
+    },
+    {
+      "path": "previews/desktop-overview.png",
+      "bytes": 618931,
+      "sha256": "f5d2189623311b2b5258b2f1f22ae3aeb6b160638a2a00d06759c1ce480ec948"
+    },
+    {
+      "path": "previews/desktop-prescription.png",
+      "bytes": 652109,
+      "sha256": "87509a854bf37ffc926c3eec0ddccdec342efa0aed18e10333736e32631f3a22"
+    },
+    {
+      "path": "previews/mobile-card.png",
+      "bytes": 141200,
+      "sha256": "e65b6fd70063aa493302d2cde729d2d643a52b37b4c8886f127e06be0fcf30df"
+    },
+    {
+      "path": "reference/选定的森林树屋风格.png",
+      "bytes": 2951976,
+      "sha256": "f09ff38630e44a2a3036696f9da14fa9aa8217cdeb5312e2374516fa20d8ccad"
+    },
+    {
+      "path": "src/characters.js",
+      "bytes": 9220,
+      "sha256": "f79e5ce1c3c40bca7c17799faa9d07bbf71971014a0efa94fb6a41cfb54b292b"
+    },
+    {
+      "path": "src/index.template.html",
+      "bytes": 10790,
+      "sha256": "cbbcb39c124e4a0443ebaabf3d93505daf36b179d8ddf47797243b7bdd04e7ca"
+    },
+    {
+      "path": "src/main.js",
+      "bytes": 19481,
+      "sha256": "2054bc5185a7dbadd2b34cc401aa104006cda63da44b0b93517a91457560efdb"
+    },
+    {
+      "path": "src/optimize.js",
+      "bytes": 2367,
+      "sha256": "ed4260c34cd91f967477ca06e615d7ee210fd987d00a5c84e7431bb2c4f4a4a7"
+    },
+    {
+      "path": "src/prescriptions.json",
+      "bytes": 20369,
+      "sha256": "d9bbf8dc82a372b056c6e233e3f153cae38cfdb18b311b04f489e65fd37422a5"
+    },
+    {
+      "path": "src/scene.js",
+      "bytes": 19774,
+      "sha256": "30d4221eecc43428845ac489fb89d9a26a47ede36c08712e360f51630717ef64"
+    },
+    {
+      "path": "verification/acceptance-results.json",
+      "bytes": 5319,
+      "sha256": "b590287964095445d39486535c416191765956b102c81d9fe7fa118434cafe3b"
+    },
+    {
+      "path": "verification/final-smoke-results.json",
+      "bytes": 354,
+      "sha256": "838c440325a065c60c56ea746830be03c28a95ea5517be20936b2c7a81f3a52d"
+    },
+    {
+      "path": "verification/model-export-results.json",
+      "bytes": 1668,
+      "sha256": "114a299933f085bbbe73a370180e9aa5f80d5a52aa2a5bab945bec189f597c07"
+    },
+    {
+      "path": "verification/model-structure-results.json",
+      "bytes": 965,
+      "sha256": "c34af3919300568ae7d25128b04e6b0a47f51ee478f3fa31a43e4e427b0a23b0"
+    },
+    {
+      "path": "verification/rebuild-results.json",
+      "bytes": 177,
+      "sha256": "feb73260bfc4851ae018f669636aa945bf04798a49e4bab7bad36602fada681d"
+    }
+  ]
+}

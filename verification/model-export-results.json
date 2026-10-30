@@ -1,0 +1,91 @@
+{
+  "ok": true,
+  "models": [
+    {
+      "id": "scene",
+      "bytes": 1926588,
+      "nodes": 2053,
+      "meshes": 418,
+      "materials": 53,
+      "extensions": [
+        "KHR_materials_emissive_strength"
+      ]
+    },
+    {
+      "id": "memory",
+      "bytes": 982272,
+      "nodes": 70,
+      "meshes": 41,
+      "materials": 33,
+      "extensions": [
+        "KHR_materials_emissive_strength"
+      ]
+    },
+    {
+      "id": "cpu",
+      "bytes": 810372,
+      "nodes": 69,
+      "meshes": 40,
+      "materials": 32,
+      "extensions": [
+        "KHR_materials_emissive_strength"
+      ]
+    },
+    {
+      "id": "disk",
+      "bytes": 820124,
+      "nodes": 65,
+      "meshes": 36,
+      "materials": 28,
+      "extensions": [
+        "KHR_materials_emissive_strength"
+      ]
+    },
+    {
+      "id": "temperature",
+      "bytes": 855996,
+      "nodes": 75,
+      "meshes": 41,
+      "materials": 31,
+      "extensions": [
+        "KHR_materials_emissive_strength"
+      ]
+    },
+    {
+      "id": "desktop",
+      "bytes": 898096,
+      "nodes": 68,
+      "meshes": 39,
+      "materials": 31,
+      "extensions": [
+        "KHR_materials_emissive_strength"
+      ]
+    },
+    {
+      "id": "network",
+      "bytes": 1620696,
+      "nodes": 67,
+      "meshes": 38,
+      "materials": 30,
+      "extensions": [
+        "KHR_materials_emissive_strength"
+      ]
+    },
+    {
+      "id": "doctor",
+      "bytes": 45544,
+      "nodes": 49,
+      "meshes": 20,
+      "materials": 12,
+      "extensions": []
+    },
+    {
+      "id": "visitor",
+      "bytes": 37388,
+      "nodes": 43,
+      "meshes": 14,
+      "materials": 9,
+      "extensions": []
+    }
+  ]
+}

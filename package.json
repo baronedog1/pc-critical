@@ -1,0 +1,18 @@
+{
+  "name": "forest-computer-hospital",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Standalone three-dimensional forest hospital frontend template",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baronedog1/pc-critical.git"
+  }
+}

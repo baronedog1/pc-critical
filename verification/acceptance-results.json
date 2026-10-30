@@ -1,0 +1,219 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "name": "离线单文件启动",
+      "ok": true,
+      "detail": "file:"
+    },
+    {
+      "name": "真实鼠标悬停 memory",
+      "ok": true,
+      "detail": "memory"
+    },
+    {
+      "name": "真实鼠标悬停 cpu",
+      "ok": true,
+      "detail": "cpu"
+    },
+    {
+      "name": "真实鼠标悬停 temperature",
+      "ok": true,
+      "detail": "temperature"
+    },
+    {
+      "name": "真实鼠标悬停 desktop",
+      "ok": true,
+      "detail": "desktop"
+    },
+    {
+      "name": "真实鼠标悬停 disk",
+      "ok": true,
+      "detail": "disk"
+    },
+    {
+      "name": "真实鼠标悬停 network",
+      "ok": true,
+      "detail": "network"
+    },
+    {
+      "name": "点击后卡片固定",
+      "ok": true
+    },
+    {
+      "name": "健康磁盘默认检查",
+      "ok": true,
+      "detail": {
+        "value": "disk_low_check",
+        "text": "请对系统盘做只读深度体检，检查空间占用、文件系统状态及本机能读取的健康信息，指出证据与建议，不自行修复或删除。不保证所有硬件都有SMART，读不到就如实说明。"
+      }
+    },
+    {
+      "name": "严重磁盘默认清理",
+      "ok": true,
+      "detail": {
+        "value": "disk_low_action",
+        "text": "请针对系统盘清理过期临时文件与无用应用缓存，保护个人核心文件与工程源码，同卷归档不计入真实释放空间，删除操作按授权执行并对比前后可用容量。"
+      }
+    },
+    {
+      "name": "处方对象替换",
+      "ok": true
+    },
+    {
+      "name": "复制单段处方",
+      "ok": true,
+      "detail": {
+        "method": "clipboard",
+        "text": "请针对外接盘清理过期临时文件与无用应用缓存，保护个人核心文件与工程源码，同卷归档不计入真实释放空间，删除操作按授权执行并对比前后可用容量。"
+      }
+    },
+    {
+      "name": "Escape关闭卡片",
+      "ok": true
+    },
+    {
+      "name": "暂停巡诊",
+      "ok": true
+    },
+    {
+      "name": "恢复巡诊",
+      "ok": true
+    },
+    {
+      "name": "预留状态接入",
+      "ok": true
+    },
+    {
+      "name": "拖动旋转三维视角",
+      "ok": true,
+      "detail": {
+        "before": [
+          {
+            "id": "memory",
+            "x": 427.4910172349922,
+            "y": 432.6501119298527
+          },
+          {
+            "id": "cpu",
+            "x": 754.0768629875486,
+            "y": 388.0762753932971
+          },
+          {
+            "id": "temperature",
+            "x": 1052.1246678272646,
+            "y": 457.4830315534824
+          },
+          {
+            "id": "desktop",
+            "x": 423.07441566514785,
+            "y": 657.5116616127372
+          },
+          {
+            "id": "disk",
+            "x": 737.0899338727628,
+            "y": 665.956526535251
+          },
+          {
+            "id": "network",
+            "x": 1047.7080662574203,
+            "y": 682.3445812363668
+          }
+        ],
+        "after": [
+          {
+            "id": "memory",
+            "x": 436.63017946993864,
+            "y": 451.3136048359294
+          },
+          {
+            "id": "cpu",
+            "x": 748.6441184488473,
+            "y": 388.06956121709084
+          },
+          {
+            "id": "temperature",
+            "x": 1070.149228285825,
+            "y": 442.2752770073435
+          },
+          {
+            "id": "desktop",
+            "x": 438.099051150354,
+            "y": 675.6528070522542
+          },
+          {
+            "id": "disk",
+            "x": 754.2936249119837,
+            "y": 666.9411713751145
+          },
+          {
+            "id": "network",
+            "x": 1071.6180999662406,
+            "y": 666.6144792236682
+          }
+        ]
+      }
+    },
+    {
+      "name": "小屏卡片无横向溢出",
+      "ok": true,
+      "detail": {
+        "scroll": 390,
+        "width": 390,
+        "card": {
+          "left": 10,
+          "right": 380,
+          "top": 446.828125,
+          "bottom": 762
+        }
+      }
+    },
+    {
+      "name": "运行无外部网络依赖",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "无运行时异常",
+      "ok": true,
+      "detail": []
+    }
+  ],
+  "browser": "isolated headless Chrome / SwiftShader",
+  "hardwarePerformanceMeasured": false,
+  "state": {
+    "active": null,
+    "pinned": false,
+    "paused": false,
+    "scenario": "normal",
+    "statuses": {
+      "memory": "healthy",
+      "cpu": "healthy",
+      "disk": "healthy",
+      "temperature": "unknown",
+      "desktop": "healthy",
+      "network": "healthy"
+    },
+    "elapsed": 6.630099999999987,
+    "lastCopied": "请针对外接盘清理过期临时文件与无用应用缓存，保护个人核心文件与工程源码，同卷归档不计入真实释放空间，删除操作按授权执行并对比前后可用容量。",
+    "copyMethod": "clipboard",
+    "departments": [
+      "memory",
+      "cpu",
+      "temperature",
+      "desktop",
+      "disk",
+      "network"
+    ],
+    "renderer": {
+      "frame": 122,
+      "calls": 349,
+      "triangles": 478008,
+      "points": 0,
+      "lines": 0
+    },
+    "actorCount": 15,
+    "actorBatchCount": 38,
+    "mode": "adapter"
+  }
+}

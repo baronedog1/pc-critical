@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "name": "final artifact ready",
+      "ok": true
+    },
+    {
+      "name": "reduced motion paused",
+      "ok": true
+    },
+    {
+      "name": "final card render",
+      "ok": true
+    },
+    {
+      "name": "no runtime warnings/exceptions",
+      "ok": true,
+      "warnings": 0,
+      "errors": 0
+    }
+  ]
+}

@@ -1,0 +1,541 @@
+{
+  "schema_version": "computer-hospital-prescriptions/v2",
+  "app_name": "电脑小医院",
+  "copy_rule": "只复制选中选项的prompt，替换必要目标名称后仅有一段自然语言，不附加任何其它内容。",
+  "selection_policy": {
+    "healthy": "check",
+    "unknown": "check",
+    "unsupported": "check",
+    "warning": "action",
+    "critical": "action"
+  },
+  "source_note": "本处方库系参考社区公开灵感、官方排障标准与系统运维最佳实践系统改写，非原作者原版。所有处方均为一段直接可复制的自然语言任务指令。",
+  "topics": [
+    {
+      "id": "memory_pressure",
+      "label": "内存",
+      "department_id": "memory",
+      "target_kind": "device",
+      "source_ids": [
+        "S06",
+        "S07",
+        "S08",
+        "S09"
+      ],
+      "options": [
+        {
+          "id": "memory_pressure_check",
+          "kind": "check",
+          "label": "检查内存",
+          "prompt": "请查看当前系统物理内存与Swap使用现状，只读排查占用内存前列的进程和真实常驻内存，分清系统缓存与工作软件，先找找是否存在异常占用的证据。"
+        },
+        {
+          "id": "memory_pressure_action",
+          "kind": "action",
+          "label": "释放内存",
+          "prompt": "请排查当前异常占用内存的后台进程，优先平缓退出闲置或卡死应用，严禁暴力强刷内存或强退主浏览器，涉及结束重要进程先确认，处置后复查内存变化。"
+        }
+      ]
+    },
+    {
+      "id": "cpu_busy",
+      "label": "处理器",
+      "department_id": "cpu",
+      "target_kind": "device",
+      "source_ids": [
+        "S08",
+        "S09",
+        "S19"
+      ],
+      "options": [
+        {
+          "id": "cpu_busy_check",
+          "kind": "check",
+          "label": "检查CPU",
+          "prompt": "请对当前CPU占用进行短时间采样，排查占用算力前几位的进程树与调用关系，确认是正常编译渲染还是异常死循环，把高负荷原因和证据告诉我。"
+        },
+        {
+          "id": "cpu_busy_action",
+          "kind": "action",
+          "label": "平复CPU",
+          "prompt": "请定位当前持续高负荷的异常进程，优先降低优先级或平缓退出，保护正在编辑文稿的软件，涉及终止进程按授权执行，处置后观察10秒复核负载是否平复。"
+        }
+      ]
+    },
+    {
+      "id": "disk_low",
+      "label": "磁盘空间",
+      "department_id": "disk",
+      "target_kind": "disk_volume",
+      "source_ids": [
+        "S04",
+        "S05",
+        "S08",
+        "S12"
+      ],
+      "options": [
+        {
+          "id": "disk_low_check",
+          "kind": "check",
+          "label": "深度检查磁盘",
+          "prompt": "请对{{target}}做只读深度体检，检查空间占用、文件系统状态及本机能读取的健康信息，指出证据与建议，不自行修复或删除。不保证所有硬件都有SMART，读不到就如实说明。"
+        },
+        {
+          "id": "disk_low_action",
+          "kind": "action",
+          "label": "清理磁盘",
+          "prompt": "请针对{{target}}清理过期临时文件与无用应用缓存，保护个人核心文件与工程源码，同卷归档不计入真实释放空间，删除操作按授权执行并对比前后可用容量。"
+        },
+        {
+          "id": "disk_low_large_files",
+          "kind": "check",
+          "label": "查大文件",
+          "prompt": "请对{{target}}执行只读大文件排查，列出单文件体积排名前列的文件路径与大小，标注文件类型与修改时间，仅供我参考，不做任何删除或移动。"
+        }
+      ]
+    },
+    {
+      "id": "disk_growth",
+      "label": "日志激增",
+      "department_id": "disk",
+      "target_kind": "disk_volume",
+      "source_ids": [
+        "S04",
+        "S05",
+        "S08",
+        "S12"
+      ],
+      "options": [
+        {
+          "id": "disk_growth_check",
+          "kind": "check",
+          "label": "排查日志",
+          "prompt": "请只读检查{{target}}中近24小时体积异常膨胀的系统与应用日志，解析最新错误片段，找出频繁刷屏写入的推手与线索，先向我说明排查证据。"
+        },
+        {
+          "id": "disk_growth_action",
+          "kind": "action",
+          "label": "治理日志",
+          "prompt": "请针对{{target}}中刷屏失控的日志源，协助平缓停用或按规范安全截断超大日志文件，确认不影响正在运行的必要服务，处理后复查写入速度与释放空间。"
+        }
+      ]
+    },
+    {
+      "id": "temperature_high",
+      "label": "硬件发热",
+      "department_id": "temperature",
+      "target_kind": "device",
+      "source_ids": [
+        "S08",
+        "S09",
+        "S11",
+        "S20"
+      ],
+      "options": [
+        {
+          "id": "temperature_high_check",
+          "kind": "check",
+          "label": "检查发热",
+          "prompt": "请只读核验系统当前热状态与硬件传感器读数，若系统无直接度数则按调度热等级排查，找出引起高发热的高能耗前后台进程与GPU任务，汇报客观证据。"
+        },
+        {
+          "id": "temperature_high_action",
+          "kind": "action",
+          "label": "辅助降温",
+          "prompt": "请排查导致设备高温的非紧急高能耗进程，优先暂停后台重度任务，需结束失控进程前提示未保存风险并按授权执行，处置后复查热状态与降温反馈。"
+        }
+      ]
+    },
+    {
+      "id": "desktop_crowded",
+      "label": "桌面整理",
+      "department_id": "desktop",
+      "target_kind": "folder",
+      "source_ids": [
+        "S02",
+        "S03"
+      ],
+      "options": [
+        {
+          "id": "desktop_crowded_check",
+          "kind": "check",
+          "label": "盘点桌面",
+          "prompt": "请对{{target}}进行一级目录只读盘点，按截图、文档、安装包等类型统计数量与体积，不读文件内容，整理出一份清晰的杂乱现状摘要供我查看。"
+        },
+        {
+          "id": "desktop_crowded_action",
+          "kind": "action",
+          "label": "归档桌面",
+          "prompt": "请按类型将{{target}}上的散落文件分类移入今日归档目录，生成清单以备回滚，注意同卷整理不释放磁盘空间，涉及重要文稿先向我确认再移动。"
+        }
+      ]
+    },
+    {
+      "id": "downloads_pile",
+      "label": "下载积压",
+      "department_id": "desktop",
+      "target_kind": "folder",
+      "source_ids": [
+        "S02",
+        "S03",
+        "S04"
+      ],
+      "options": [
+        {
+          "id": "downloads_pile_check",
+          "kind": "check",
+          "label": "检查下载",
+          "prompt": "请只读扫描{{target}}，筛查超过30天未改动的已解压安装包、临时副本与旧文档，严禁触碰未完成的下载临时文件，整理出候选积压清单供我审阅。"
+        },
+        {
+          "id": "downloads_pile_action",
+          "kind": "action",
+          "label": "清理下载",
+          "prompt": "请对{{target}}中确认无用的旧安装包与过期临时文档进行分类清理，保护正在下载中的文件，删除或移入废纸篓按授权执行，处理后复核目录状态。"
+        }
+      ]
+    },
+    {
+      "id": "duplicate_files",
+      "label": "重复文件",
+      "department_id": "disk",
+      "target_kind": "folder",
+      "source_ids": [
+        "S03",
+        "S04"
+      ],
+      "options": [
+        {
+          "id": "duplicate_files_check",
+          "kind": "check",
+          "label": "查找重复",
+          "prompt": "请对{{target}}进行受限范围的重复文件排查，先对比大小再校验哈希确保内容完全一致，识别硬链接，列出重复文件组与路径供我确认，不做任何变动。"
+        },
+        {
+          "id": "duplicate_files_action",
+          "kind": "action",
+          "label": "清理重复",
+          "prompt": "请针对{{target}}中已确认相同的重复副本，严格按我挑选的保留项将多余副本移至隔离区或废纸篓，保留完整回滚映射清单，处置后对比释放的存储空间。"
+        }
+      ]
+    },
+    {
+      "id": "dev_cache",
+      "label": "开发缓存",
+      "department_id": "general",
+      "target_kind": "device",
+      "source_ids": [
+        "S13",
+        "S14"
+      ],
+      "options": [
+        {
+          "id": "dev_cache_check",
+          "kind": "check",
+          "label": "检查开发缓存",
+          "prompt": "请调用npm、pip、Docker等开发工具的原生诊断命令只读检查构建与包缓存用量，说明哪些是孤儿镜像与可回收项，给出空间估算，先不做任何清理。"
+        },
+        {
+          "id": "dev_cache_action",
+          "kind": "action",
+          "label": "清理开发缓存",
+          "prompt": "请针对已识别的过期构建缓存与无用容器镜像进行精确清理，严禁全局推平卷数据，说明重新构建的时耗影响，清理命令按授权执行并回验释放的容量。"
+        }
+      ]
+    },
+    {
+      "id": "startup_slow",
+      "label": "开机自启",
+      "department_id": "general",
+      "target_kind": "device",
+      "source_ids": [
+        "S17",
+        "S19"
+      ],
+      "options": [
+        {
+          "id": "startup_slow_check",
+          "kind": "check",
+          "label": "检查自启项",
+          "prompt": "请只读枚举当前系统的开机自启应用与后台驻留服务，排除系统核心组件与安全驱动，整理出高耗时、闲置或带有营销弹窗的候选自启清单与排查证据。"
+        },
+        {
+          "id": "startup_slow_action",
+          "kind": "action",
+          "label": "优化自启项",
+          "prompt": "请针对已梳理出的非必要高耗自启动项，协助调用系统标准配置停用自启权限，保护核心服务不受影响，保留原始配置以便随时恢复，调整后汇报结果。"
+        }
+      ]
+    },
+    {
+      "id": "port_conflict",
+      "label": "端口占用",
+      "department_id": "network",
+      "target_kind": "port",
+      "source_ids": [
+        "S08",
+        "S10",
+        "S22"
+      ],
+      "options": [
+        {
+          "id": "port_conflict_check",
+          "kind": "check",
+          "label": "排查端口",
+          "prompt": "请只读检测正在监听{{target}}的进程PID、启动命令、所属应用与用户，确认是正常运行中的服务、崩溃残留的孤儿后台，还是新服务端口配置冲突。"
+        },
+        {
+          "id": "port_conflict_action",
+          "kind": "action",
+          "label": "释放端口",
+          "prompt": "请针对占用{{target}}的进程，先判断能否更换新服务端口；若确需释放，向目标进程发送平缓退出信号，如需强制结束按授权执行，完成后复测端口连通。"
+        }
+      ]
+    },
+    {
+      "id": "network_dns",
+      "label": "网络与DNS",
+      "department_id": "network",
+      "target_kind": "device",
+      "source_ids": [
+        "S18"
+      ],
+      "options": [
+        {
+          "id": "network_dns_check",
+          "kind": "check",
+          "label": "诊断网络",
+          "prompt": "请分层只读排查网络：先测试本地网关连通性，再测试当前DNS解析延迟，区分是Wi-Fi物理衰减还是DNS迟钝，不改动VPN与企业配置，给出测试证据。"
+        },
+        {
+          "id": "network_dns_action",
+          "kind": "action",
+          "label": "刷新DNS",
+          "prompt": "请在确认本地连接正常但解析迟钝时，按规范刷新系统本地DNS缓存，严禁擅自修改系统DNS服务器或全局重置网络，操作后复测主流域名解析耗时。"
+        }
+      ]
+    },
+    {
+      "id": "network_busy",
+      "label": "网络流量",
+      "department_id": "network",
+      "target_kind": "device",
+      "source_ids": [
+        "S08",
+        "S18"
+      ],
+      "options": [
+        {
+          "id": "network_busy_check",
+          "kind": "check",
+          "label": "排查流量",
+          "prompt": "请只读核查当前网卡吞吐速率与建立活跃网络连接的本地进程列表，排查是系统更新、云同步、媒体上传还是异常后台在跑流量，整理出事实证据与PID。"
+        },
+        {
+          "id": "network_busy_action",
+          "kind": "action",
+          "label": "限流排障",
+          "prompt": "请针对排查出的异常高流量后台，优先在应用内暂停同步或下载任务，若需关闭异常进程先向我提示风险并按授权执行，处置后复查网卡吞吐速率是否平稳。"
+        }
+      ]
+    },
+    {
+      "id": "battery_drain",
+      "label": "电池能耗",
+      "department_id": "power",
+      "target_kind": "device",
+      "source_ids": [
+        "S08",
+        "S19",
+        "S20"
+      ],
+      "options": [
+        {
+          "id": "battery_drain_check",
+          "kind": "check",
+          "label": "检查耗电",
+          "prompt": "请只读检查电源状态与阻止休眠的系统电源断言，台式机直接说明不适用，笔记本排查在电池供电下高频唤醒、阻止息屏的高能耗进程清单与事实证据。"
+        },
+        {
+          "id": "battery_drain_action",
+          "kind": "action",
+          "label": "优化能耗",
+          "prompt": "请针对阻止系统休眠且非必要的后台进程，协助发送平缓退出请求或调整唤醒策略，保护未保存工作，涉及结束应用按授权执行，处理后复验休眠断言状态。"
+        }
+      ]
+    },
+    {
+      "id": "app_hang",
+      "label": "应用卡死",
+      "department_id": "general",
+      "target_kind": "app",
+      "source_ids": [
+        "S08",
+        "S19"
+      ],
+      "options": [
+        {
+          "id": "app_hang_check",
+          "kind": "check",
+          "label": "检查假死",
+          "prompt": "请对{{target}}展开短时间多次只读采样，核查其CPU占用、线程响应与窗口事件通信，确认是正在后台繁重计算还是彻底失去响应，先向我报告证据。"
+        },
+        {
+          "id": "app_hang_action",
+          "kind": "action",
+          "label": "平缓解救",
+          "prompt": "请针对失去响应的{{target}}，优先尝试发送系统正常退出信号，明确提示未保存文档丢失风险，确需强制终止时按授权执行，完成后复核系统资源释放。"
+        }
+      ]
+    },
+    {
+      "id": "trash_review",
+      "label": "废纸篓",
+      "department_id": "disk",
+      "target_kind": "device",
+      "source_ids": [
+        "S04",
+        "S05",
+        "S12"
+      ],
+      "options": [
+        {
+          "id": "trash_review_check",
+          "kind": "check",
+          "label": "盘点废纸篓",
+          "prompt": "请对系统废纸篓进行只读盘点，汇总文件类型、大文件分布与放入时间，重点筛查是否有误删的大型工程文件或珍贵文档，列出超大项目摘要供我查看。"
+        },
+        {
+          "id": "trash_review_action",
+          "kind": "action",
+          "label": "清空废纸篓",
+          "prompt": "请在确认废纸篓中无误删资料后，按规范执行清空操作，永久删除前向我说明清空影响并按授权执行，清空后核验各磁盘卷真实收复的存储空间并汇报。"
+        }
+      ]
+    },
+    {
+      "id": "backup_check",
+      "label": "数据备份",
+      "department_id": "general",
+      "target_kind": "device",
+      "source_ids": [
+        "S12",
+        "S19",
+        "S21"
+      ],
+      "options": [
+        {
+          "id": "backup_check_check",
+          "kind": "check",
+          "label": "检查备份",
+          "prompt": "请只读检查当前系统备份服务与快照状态，如macOS时间机器挂载与最近成功时间、Windows文件历史，不窥探文件内容，客观汇报备份通道健康证据。"
+        },
+        {
+          "id": "backup_check_action",
+          "kind": "action",
+          "label": "触发备份",
+          "prompt": "请在确认外接备份盘或备份服务就绪后，按系统规范发起轻量增量备份或快照更新，不改动备份底层结构，备份启动后持续跟踪状态并汇报最新进展。"
+        }
+      ]
+    },
+    {
+      "id": "cloud_sync",
+      "label": "云盘同步",
+      "department_id": "network",
+      "target_kind": "folder",
+      "source_ids": [
+        "S02",
+        "S03",
+        "S23"
+      ],
+      "options": [
+        {
+          "id": "cloud_sync_check",
+          "kind": "check",
+          "label": "检查同步",
+          "prompt": "请只读巡检{{target}}，排查带有冲突标记、特殊非法字符或超长路径的堵塞文件，识别云端未下载的虚拟占位文件，找出同步卡滞的具体原因与证据。"
+        },
+        {
+          "id": "cloud_sync_action",
+          "kind": "action",
+          "label": "疏导同步",
+          "prompt": "请针对{{target}}中确认为冲突或命名的堵塞文件进行安全重命名与隔离归档，严禁误删未下载的占位文件，变更操作按授权执行，促使同步客户端恢复。"
+        }
+      ]
+    },
+    {
+      "id": "batch_rename",
+      "label": "批量更名",
+      "department_id": "desktop",
+      "target_kind": "folder",
+      "source_ids": [
+        "S02",
+        "S03"
+      ],
+      "options": [
+        {
+          "id": "batch_rename_check",
+          "kind": "check",
+          "label": "预览更名",
+          "prompt": "请对{{target}}中的文件进行只读分析，根据创建时间或类型拟定整齐规则，列出前10个文件更名前后的对照预览表与防冲突策略，不修改文件内容。"
+        },
+        {
+          "id": "batch_rename_action",
+          "kind": "action",
+          "label": "执行更名",
+          "prompt": "请针对{{target}}中已确认规则的文件批量执行安全重命名，完整记录映射清单至当前目录以支持随时复原，操作按授权执行，完成后汇报更名结果。"
+        }
+      ]
+    },
+    {
+      "id": "device_or_update_error",
+      "label": "外设与更新",
+      "department_id": "general",
+      "target_kind": "device",
+      "source_ids": [
+        "S12",
+        "S17",
+        "S19"
+      ],
+      "options": [
+        {
+          "id": "device_or_update_error_check",
+          "kind": "check",
+          "label": "检查外设更新",
+          "prompt": "请只读读取系统设备状态与更新日志，排查外接硬件驱动异常代码或系统更新挂起原因，严禁从非官方途径下载驱动，列出客观事实证据与排障建议。"
+        },
+        {
+          "id": "device_or_update_error_action",
+          "kind": "action",
+          "label": "修复更新挂起",
+          "prompt": "请按官方规范协助重启挂起的系统更新服务或重置临时更新缓存，不改动系统底层注册表核心服务，变更操作按授权执行，处置后复测更新通道连通性。"
+        }
+      ]
+    },
+    {
+      "id": "audio_video_cache",
+      "label": "剪辑缓存",
+      "department_id": "disk",
+      "target_kind": "folder",
+      "source_ids": [
+        "S04",
+        "S05",
+        "S12"
+      ],
+      "options": [
+        {
+          "id": "audio_video_cache_check",
+          "kind": "check",
+          "label": "检查剪辑缓存",
+          "prompt": "请只读排查{{target}}中的剪辑渲染缓存、代理媒体与波形文件体积，严格保护工程原件与原始素材，说明清理后的重新渲染成本，列出占用分布清单。"
+        },
+        {
+          "id": "audio_video_cache_action",
+          "kind": "action",
+          "label": "清理剪辑缓存",
+          "prompt": "请针对{{target}}中已废弃项目的临时渲染缓存进行安全删除，严禁触碰工程项目草稿与原始媒体素材，删除操作按授权执行，处置后核验释放的磁盘空间。"
+        }
+      ]
+    }
+  ]
+}
